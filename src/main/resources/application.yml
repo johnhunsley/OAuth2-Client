@@ -1,10 +1,5 @@
 server:
     port: 8082
-    servlet:
-      context-path: /client
-    session:
-      cookie:
-        name: UISESSION
 security:
   basic:
     enabled: false
@@ -12,10 +7,14 @@ security:
     client:
       clientId: myClientId
       clientSecret: secret
-      accessTokenUri: http://localhost:8080/oauth/token
-      userAuthorizationUri: http://localhost:8080/oauth/authorize
+      accessTokenUri: http://localhost:8080/auth/oauth/token
+      userAuthorizationUri: http://localhost:8080/auth/oauth/authorize
+      scope: user_info
     resource:
-      userInfoUri: http://localhost:8081/resource/user/me
+      userInfoUri: http://localhost:8081/resource/user
 spring:
   thymeleaf:
     cache: false
+logging:
+  level:
+    org.springframework.security: DEBUG
